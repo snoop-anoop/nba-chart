@@ -4,7 +4,7 @@ NBA Wins Above .500 Chart Generator
 1. Go to https://www.basketball-reference.com/leagues/NBA_2026_standings_by_date_eastern_conference.html
 2. Press Ctrl+S, save as "bbref_east.html" in this folder
 3. Run: python generate_chart.py
-4. Open chart.html in your browser
+4. Open index.html in your browser
 
 For West: save western conference page as bbref_west.html and re-run.
 """
@@ -360,9 +360,9 @@ if not east_teams and not west_teams:
 generated_at = datetime.now().strftime("%b %d, %Y")
 html = generate_html(east_teams, west_teams, generated_at)
 
-with open("chart.html", "w", encoding="utf-8") as f:
+with open("index.html", "w", encoding="utf-8") as f:
     f.write(html)
 
 total = len(east_teams) + len(west_teams)
-print(f"\nDone! {total} teams written to chart.html")
-print("Open chart.html in your browser to view the chart.")
+print(f"\nDone! {total} teams written to index.html")
+print("Open index.html in your browser to view the chart.")
