@@ -1,8 +1,8 @@
 name: Update NBA Chart
 
 on:
-  schedule:
-    - cron: '0 12 * * *'  # noon UTC daily
+  # schedule:
+  #  - cron: '0 12 * * *'  # noon UTC daily
   workflow_dispatch:        # also allows manual trigger from GitHub UI
 
 jobs:
