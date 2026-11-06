@@ -8,6 +8,7 @@ on:
 jobs:
   update:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
 
     steps:
       - name: Checkout repo
@@ -21,8 +22,7 @@ jobs:
       - name: Install dependencies
         run: |
           pip install playwright beautifulsoup4
-          python -m playwright install chromium
-          python -m playwright install-deps chromium
+          python -m playwright install --with-deps chromium
 
       - name: Run refresh
         run: python refresh_data.py
