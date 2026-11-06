@@ -87,7 +87,7 @@ function getMonthTicks() {
   const months = {};
   allDates.forEach((d,i) => {
     const month = new Date(d).toLocaleString('default', { month: 'short' });
-    if (!months[month]) months[month] = i;
+    if (months[month] === undefined) months[month] = i;
   });
   return months;
 }
