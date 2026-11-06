@@ -90,7 +90,7 @@ def generate_html(east_teams, west_teams, generated_at):
         "CHO":"#1d1160","IND":"#002d62","WAS":"#002b5c",
         # West
         "OKC":"#007ac1","SAS":"#c4ced4","LAL":"#552583","DEN":"#0e2240",
-        "MIN":"#236192","HOU":"#ce1141","GSW":"#1d428a","PHX":"#1d1160",
+        "MIN":"#236192","HOU":"#ce1141","GSW":"#1d428a","PHX":"#1d1160","PHO":"#1d1160",
         "LAC":"#c8102e","POR":"#e03a3e","UTA":"#002b5c","MEM":"#5d76a9",
         "DAL":"#00538c","NOP":"#0c2340","SAC":"#5a2d81",
     }
@@ -176,7 +176,7 @@ function buildDatasets(teams) {{
       backgroundColor: color,
       borderWidth: 1.8,
       pointRadius: 0,
-      tension: 0.2,
+      tension: 0,
       parsing: false,
     }};
   }});
@@ -252,6 +252,11 @@ function buildChart(conf) {{
           type: 'linear',
           min: sliderMin,
           max: allDates.length - 1,
+          afterBuildTicks: (axis) => {{
+            axis.ticks = Object.values(monthTicks)
+              .filter(idx => idx >= axis.min && idx <= axis.max)
+              .map(idx => ({{ value: idx }}));
+          }},
           ticks: {{
             color: '#999',
             font: {{ size: 11 }},
