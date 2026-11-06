@@ -13,8 +13,10 @@ Run this from your Coding folder whenever you want fresh data.
 from playwright.sync_api import sync_playwright
 import subprocess, sys, time, os
 
-EAST_URL = "https://www.basketball-reference.com/leagues/NBA_2026_standings_by_date_eastern_conference.html"
-WEST_URL = "https://www.basketball-reference.com/leagues/NBA_2026_standings_by_date_western_conference.html"
+SEASON = 2027  # BBRef names seasons by end year: 2026-27 = 2027
+
+EAST_URL = f"https://www.basketball-reference.com/leagues/NBA_{SEASON}_standings_by_date_eastern_conference.html"
+WEST_URL = f"https://www.basketball-reference.com/leagues/NBA_{SEASON}_standings_by_date_western_conference.html"
 
 def fetch_page(page, url, save_as):
     print(f"  Loading {save_as}...")
